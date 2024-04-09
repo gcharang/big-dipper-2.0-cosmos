@@ -237,7 +237,7 @@
       "endpoints": {
         "graphql": "https://nucleus.graphql.komodo.earth/v1/graphql",
         "graphqlWebsocket": "wss://nucleus.graphql.komodo.earth/v1/graphql",
-        "publicRpcWebsocket": "wss://nucleus-rpc.bravo.komodo.earth:26657/websocket"
+        "publicRpcWebsocket": "wss://nucleus-rpc.bravo.komodo.earth/websocket"
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",
