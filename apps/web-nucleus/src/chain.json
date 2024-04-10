@@ -214,8 +214,8 @@
         "height": 1
       },
       "prefix": {
-        "consensus": "nuc",
-        "validator": "nuc",
+        "consensus": "nucvalcons",
+        "validator": "nucvaloper",
         "account": "nuc"
       },
       "primaryTokenUnit": "unucl",
