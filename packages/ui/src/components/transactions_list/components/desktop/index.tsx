@@ -17,7 +17,7 @@ import React, { FC, MutableRefObject, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
-import FilterTxsByType from '@/components/transaction_type_filter';
+// import FilterTxsByType from '@/components/transaction_type_filter';
 import NoData from '@/components/no_data';
 
 const useRenderHeaderCell = ({
@@ -28,7 +28,7 @@ const useRenderHeaderCell = ({
   style: React.CSSProperties;
 }) => {
   const { key, align } = columns[columnIndex];
-  const isTypeKey = key === 'type';
+  // const isTypeKey = key === 'type';
   const { t } = useAppTranslation('transactions');
   const { classes } = useStyles();
 
@@ -37,7 +37,7 @@ const useRenderHeaderCell = ({
       <Typography variant="h4" align={align}>
         {t(key)}
       </Typography>
-      {isTypeKey && <FilterTxsByType />}
+      {/* {isTypeKey && <FilterTxsByType />} */}
     </div>
   );
 };
