@@ -94,6 +94,8 @@ import jackalLogoDark from 'shared-utils/assets/logos/jackal-dark.svg?url';
 import jackalLogoLight from 'shared-utils/assets/logos/jackal-light.svg?url';
 import archwayLogoDark from 'shared-utils/assets/logos/archway-dark.svg?url';
 import archwayLogoLight from 'shared-utils/assets/logos/archway-light.svg?url';
+import nucleusIconLight from 'shared-utils/assets/icons/nucleus-light.svg?url';
+import nucleusIconDark from 'shared-utils/assets/icons/nucleus-dark.svg?url';
 
 interface IconProps extends Omit<ImageProps, 'id' | 'src'> {
   type: 'icon' | 'logo';
@@ -295,6 +297,10 @@ const ChainIcon = ({
     case 'archway':
       [iconDark, iconLight] =
         type === 'icon' ? [archwayIconBoth, archwayIconBoth] : [archwayLogoDark, archwayLogoLight];
+      break;
+    case 'nucleus':
+      [iconDark, iconLight] =
+        type === 'icon' ? [nucleusIconDark, nucleusIconLight] : [nucleusIconDark, nucleusIconLight];
       break;
     default:
       throw new Error(`chain ${chainName} not supported`);
