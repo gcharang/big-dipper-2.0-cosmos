@@ -6,15 +6,16 @@ query MessageTypes{
   }
 }
 
-query MsgTypesByAddress($addresses: _text = "{}",$types: _text = "{}", $limit: bigint = 7, $offset: bigint = 0) {
-  msgTypes: messages_by_address(args: {addresses: $addresses,types: $types, limit: $limit, offset: $offset}) {
-    message_type{
-      label
-      module
-      type
-    }
-  }
-}
+# causng error, so commenting out
+# query MsgTypesByAddress($addresses: _text = "{}") {
+#   msgTypes: messages_types_by_address(args: {addresses: $addresses}) {
+#     message_type{
+#       label
+#       module
+#       type
+#     }
+#   }
+# }
 
 subscription MessagesByTypesListener($types: _text = "{}", $limit: bigint = 7, $offset: bigint = 0) {
   messagesByTypes: messages_by_type(args: {types: $types, limit: $limit, offset: $offset}) {

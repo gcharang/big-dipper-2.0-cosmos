@@ -7950,16 +7950,6 @@ export type MessageTypesQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type MessageTypesQuery = { msgTypes: Array<{ __typename?: 'message_type', type: string, module: string, label: string }> };
 
-export type MsgTypesByAddressQueryVariables = Exact<{
-  addresses?: InputMaybe<Scalars['_text']>;
-  types?: InputMaybe<Scalars['_text']>;
-  limit?: InputMaybe<Scalars['bigint']>;
-  offset?: InputMaybe<Scalars['bigint']>;
-}>;
-
-
-export type MsgTypesByAddressQuery = { msgTypes: Array<{ __typename?: 'message', message_type: { __typename?: 'message_type', label: string, module: string, type: string } }> };
-
 export type MessagesByTypesListenerSubscriptionVariables = Exact<{
   types?: InputMaybe<Scalars['_text']>;
   limit?: InputMaybe<Scalars['bigint']>;
@@ -8952,50 +8942,6 @@ export function useMessageTypesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptio
 export type MessageTypesQueryHookResult = ReturnType<typeof useMessageTypesQuery>;
 export type MessageTypesLazyQueryHookResult = ReturnType<typeof useMessageTypesLazyQuery>;
 export type MessageTypesQueryResult = Apollo.QueryResult<MessageTypesQuery, MessageTypesQueryVariables>;
-export const MsgTypesByAddressDocument = gql`
-    query MsgTypesByAddress($addresses: _text = "{}", $types: _text = "{}", $limit: bigint = 7, $offset: bigint = 0) {
-  msgTypes: messages_by_address(
-    args: {addresses: $addresses, types: $types, limit: $limit, offset: $offset}
-  ) {
-    message_type {
-      label
-      module
-      type
-    }
-  }
-}
-    `;
-
-/**
- * __useMsgTypesByAddressQuery__
- *
- * To run a query within a React component, call `useMsgTypesByAddressQuery` and pass it any options that fit your needs.
- * When your component renders, `useMsgTypesByAddressQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useMsgTypesByAddressQuery({
- *   variables: {
- *      addresses: // value for 'addresses'
- *      types: // value for 'types'
- *      limit: // value for 'limit'
- *      offset: // value for 'offset'
- *   },
- * });
- */
-export function useMsgTypesByAddressQuery(baseOptions?: Apollo.QueryHookOptions<MsgTypesByAddressQuery, MsgTypesByAddressQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<MsgTypesByAddressQuery, MsgTypesByAddressQueryVariables>(MsgTypesByAddressDocument, options);
-      }
-export function useMsgTypesByAddressLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MsgTypesByAddressQuery, MsgTypesByAddressQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<MsgTypesByAddressQuery, MsgTypesByAddressQueryVariables>(MsgTypesByAddressDocument, options);
-        }
-export type MsgTypesByAddressQueryHookResult = ReturnType<typeof useMsgTypesByAddressQuery>;
-export type MsgTypesByAddressLazyQueryHookResult = ReturnType<typeof useMsgTypesByAddressLazyQuery>;
-export type MsgTypesByAddressQueryResult = Apollo.QueryResult<MsgTypesByAddressQuery, MsgTypesByAddressQueryVariables>;
 export const MessagesByTypesListenerDocument = gql`
     subscription MessagesByTypesListener($types: _text = "{}", $limit: bigint = 7, $offset: bigint = 0) {
   messagesByTypes: messages_by_type(
